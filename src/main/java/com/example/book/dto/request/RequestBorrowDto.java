@@ -1,5 +1,7 @@
-package com.example.book.dto;
+package com.example.book.dto.request;
 
+import com.example.book.entity.Book;
+import com.example.book.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,8 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResponseStatusDto {
+public class RequestBorrowDto {
 
-    private String message;
-    private Integer statusCode;
+    private String username;
 }

@@ -1,10 +1,15 @@
 package com.example.book.entity;
 
+import com.example.book.util.Timestamped;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.*;
 
@@ -13,22 +18,23 @@ import static jakarta.persistence.GenerationType.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class User extends Timestamped {
 
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column
+    @Column(unique = true)
     private String username;
 
     @Column
     private String password;
 
     @Column
-    private String email;
-
-    @Column
     private UserRoleEnum role;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<BookBorrow> bookBorrows = new ArrayList<>();
 }

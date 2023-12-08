@@ -1,4 +1,4 @@
-package com.example.book.dto;
+package com.example.book.dto.request;
 
 import com.example.book.entity.UserRoleEnum;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,6 @@ public class RequestSignupDto {
 
     private String username;
     private String password;
-    private String email;
     private UserRoleEnum role;
 
 }

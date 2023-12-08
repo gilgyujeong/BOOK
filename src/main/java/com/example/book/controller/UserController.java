@@ -1,8 +1,7 @@
 package com.example.book.controller;
 
-import com.example.book.dto.RequestSignupDto;
-import com.example.book.dto.ResponseSignupDto;
-import com.example.book.dto.ResponseStatusDto;
+import com.example.book.dto.request.RequestSignupDto;
+import com.example.book.dto.response.ResponseStatusDto;
 import com.example.book.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/singup")
+    @PostMapping("/signup")
     public ResponseStatusDto signup(@RequestBody RequestSignupDto requestSignupDto) {
         return userService.signup(requestSignupDto);
     }

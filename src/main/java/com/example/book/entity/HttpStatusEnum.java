@@ -5,7 +5,10 @@ import lombok.Getter;
 @Getter
 public enum HttpStatusEnum {
 
-    OK(200, "OK");
+    OK(200, "OK"),
+    CREATED(201, "Created"),
+    FAIL(401, "Fail"),
+    NOT_FOUND(404, "Not Found");
 
     private final Integer statusCode;
     private final String message;
