@@ -25,6 +25,11 @@ public class BookController {
         return bookService.bookRegistration(requestBookRegistrationDto);
     }
 
+    @GetMapping("/")
+    public ResponseDataDto<?> bookList() {
+        return bookService.bookList();
+    }
+
     /**
      * 등록된 도서 수정
      * @param requestBookRegistrationDto

@@ -2,6 +2,7 @@ package com.example.book.entity;
 
 import com.example.book.util.Timestamped;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,14 +26,11 @@ public class User extends Timestamped {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
-
-    @Column
-    private UserRoleEnum role;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")

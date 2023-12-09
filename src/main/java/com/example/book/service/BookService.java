@@ -40,6 +40,12 @@ public class BookService {
                 .build();
     }
 
+    public ResponseDataDto<?> bookList() {
+        List<Book> bookList = bookRepository.findAll();
+        List<ResponseBookDto> responseBookDtoList = bookList.stream().map(ResponseBookDto::new).toList();
+        return new ResponseDataDto<>(responseBookDtoList);
+    }
+
     @Transactional
     public ResponseStatusDto bookUpdate(RequestBookRegistrationDto requestBookRegistrationDto, Long bookId) {
         Book book = bookRepository.findById(bookId).orElseThrow(()
