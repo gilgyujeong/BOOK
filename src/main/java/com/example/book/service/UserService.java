@@ -18,14 +18,13 @@ public class UserService {
         User user = User.builder()
                 .username(requestSignupDto.getUsername())
                 .password(requestSignupDto.getPassword())
-                .role(requestSignupDto.getRole())
                 .build();
 
         userRepository.save(user);
 
         return ResponseStatusDto.builder()
-                .message(OK.getMessage())
-                .statusCode(OK.getStatusCode())
+                .message(CREATED.getMessage())
+                .statusCode(CREATED.getStatusCode())
                 .build();
     }
 }
