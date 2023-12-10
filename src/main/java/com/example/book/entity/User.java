@@ -33,6 +33,7 @@ public class User extends Timestamped {
     private String password;
 
     @JsonIgnore
+    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<BookBorrow> bookBorrows = new ArrayList<>();
 }
