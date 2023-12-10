@@ -15,11 +15,6 @@ public class BookController {
 
     private final BookService bookService;
 
-    /**
-     * 도서 등록
-     * @param requestBookRegistrationDto
-     * @return
-     */
     @PostMapping("/registration")
     public ResponseStatusDto bookRegistration(@RequestBody RequestBookRegistrationDto requestBookRegistrationDto) {
         return bookService.bookRegistration(requestBookRegistrationDto);
@@ -30,12 +25,6 @@ public class BookController {
         return bookService.bookList();
     }
 
-    /**
-     * 등록된 도서 수정
-     * @param requestBookRegistrationDto
-     * @param bookId
-     * @return
-     */
     @PutMapping("/update/{bookId}")
     public ResponseStatusDto bookUpdate(@RequestBody RequestBookRegistrationDto requestBookRegistrationDto, @PathVariable Long bookId) {
         return bookService.bookUpdate(requestBookRegistrationDto, bookId);
