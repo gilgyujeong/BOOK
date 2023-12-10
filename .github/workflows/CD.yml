@@ -58,7 +58,7 @@ jobs:
       - name: Deploy
         run: |
           aws deploy create-deployment \
-          --application-name BOOK \
+          --application-name book \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --deployment-group-name book-codedepoly \
           --file-exists-behavior OVERWRITE \
