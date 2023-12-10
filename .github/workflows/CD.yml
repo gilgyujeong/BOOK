@@ -60,7 +60,7 @@ jobs:
           aws deploy create-deployment \
           --application-name book \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
-          --deployment-group-name book-codedepoly \
+          --deployment-group-name book-codedeploy \
           --file-exists-behavior OVERWRITE \
           --s3-location bucket=gilgyu-bucket,bundleType=zip,key=book/$GITHUB_SHA.zip \
           --region ap-northeast-2 \
