@@ -33,10 +33,12 @@ public class Book extends Timestamped {
     @Column(nullable = false)
     String bookWriter;
 
+    @Builder.Default
     @Column
     private boolean isLoans = false;
 
     @JsonIgnore
+    @Builder.Default
     @OneToMany(mappedBy = "book")
     private List<BookBorrow> bookBorrows = new ArrayList<>();
 

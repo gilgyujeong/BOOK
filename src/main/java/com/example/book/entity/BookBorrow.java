@@ -21,6 +21,7 @@ public class BookBorrow extends Timestamped {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
+    @Builder.Default
     @Column
     private boolean isReturn = false;
 
