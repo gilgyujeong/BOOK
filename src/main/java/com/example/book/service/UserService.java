@@ -15,6 +15,10 @@ public class UserService {
 
     private final UserRepository userRepository;
     public ResponseStatusDto signup(RequestSignupDto requestSignupDto) {
+        if (requestSignupDto.getPassword() != requestSignupDto.getCheckPassword()) {
+            throw new IllegalArgumentException("동일한 비밀번호가 아닙니다.");
+        }
+
         User user = User.builder()
                 .username(requestSignupDto.getUsername())
                 .password(requestSignupDto.getPassword())
